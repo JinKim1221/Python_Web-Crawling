@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 headers = {"User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"}
 for i in range(1, 6):
-        
+    print("page : ", i)
     url = "https://www.amazon.co.uk/s?k=laptop&page={}&qid=1624653497&ref=sr_pg_2".format(i)
 
     res = requests.get(url, headers=headers)
@@ -47,10 +47,17 @@ for i in range(1, 6):
 
         rate_cnt = item.find("span", attrs={"class" : "a-size-base"})
         if rate_cnt:
-            rate_cnt = rate_cnt.get_text()
+            rate_cnt = rate_cnt.get_text().replace(",","")
         else :
             rate_cnt = "not available"
             continue
 
-        if float(rate) >= 4.5 :
-            print("Product Name : " + name +"\nPrice : "+price+"\nRate :  "+ rate+"\nNumber of reviews : "+ rate_cnt +"\n")
+        link = item.find("a", attrs={"class" : "a-link-normal a-text-normal"})["href"]
+
+        if float(rate) >= 4.5 and int(rate_cnt) >= 100:
+            print(f"Product name : {name}")
+            print(f"Price : {price}")
+            print(f"Rate : {rate} {rate_cnt} reviews")
+            print("click to buy : {}" .format("https://www.amazon.co.uk" + link))
+            print("====================================================================")
+            
