@@ -11,7 +11,12 @@ soup = BeautifulSoup(res.text, "lxml")
 
 images = soup.find_all("div", attrs={"class" : "VbZgje"})
 # print(len(images))
-for image in images :
+for idx, image in enumerate(images) :
     image_url = image["data-tu"]
     print(image_url)
     
+    image_res = requests.get(image_url)
+    image_res.raise_for_status()
+
+    with open("movie{}.jpg".format(idx+1), "wb") as f :
+        f.write(image_res.content) 
