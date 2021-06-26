@@ -10,7 +10,7 @@ def print_match(m):
         print("m.grounp() : ", m.group())
         print("m.string : ", m.string)
         print("m.start() : ", m.start()) # start index that matches the character
-        print("m.end() : ", m.end()) # end index that matches the character
+        print("m.end() : ", m.end()) # endS index that matches the character
         print("m.span() : ", m.span())# (start index, end index) that matches the character
     else :
         print("not matching")
