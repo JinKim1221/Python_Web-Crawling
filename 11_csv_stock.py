@@ -4,7 +4,11 @@ import requests
 from bs4 import BeautifulSoup
 
 
-for page in range(0, 1) :
+filename = "stock_price1-200.csv"
+f = open (filename, "w", encoding="utf8", newline="")
+writer = csv.writer(f)
+
+for page in range(0, 6) :
 
     headers = {"User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"}
     url = "https://finance.yahoo.com/screener/predefined/ms_technology?count=25&offset={}".format(page * 25)
@@ -17,4 +21,5 @@ for page in range(0, 1) :
     for row in data_rows:
         columns = row.find_all("td")
         data = [column.get_text() for column in columns]
-        print(data)
+        # print(data)
+        writer.writerow(data)
