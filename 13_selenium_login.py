@@ -1,27 +1,35 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
+import time
 browser = webdriver.Firefox() # "./geckodriver.exe"
 
-headers = {"User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"}
-url = "https://www.google.com/"
+# Move to naver.com
+url = "https://www.naver.com/"
 browser.get(url)
 
-elem = browser.find_element_by_id("L2AGLb")
+# Click login button
+elem = browser.find_element_by_class_name("link_login")
 elem.click()
 
-browser.refresh()
+# input id, password
+login_elem = browser.find_element_by_id("id")
+login_elem.send_keys("test")
+pass_elem = browser.find_element_by_id("pw")
+pass_elem.send_keys("test--!")
 
+# click login button
+signin_elem = browser.find_element_by_id("log.login")
+signin_elem.click()
 
-login_elem = browser.find_element_by_xpath("/html/body/div[1]/div[1]/div/div/div/div[2]/a")
-login_elem.click()
+time.sleep(4)
 
-id_elem = browser.find_element_by_id("identifierId")
-id_elem.send_keys("test")
+# input new id
+browser.find_element_by_id("id").clear()
+browser.find_element_by_id("id").send_keys("sdo7329")
 
-next_elem = browser.find_element_by_xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/span")
-next_elem.click()
+# dispslay html info
+print(browser.page_source)
 
-# pass_elem = browser.find_element_by_id("")
-
-# browser.quit()
+# close browser
+# browser.close() # close current browser 
+browser.quit() # close all browsers
