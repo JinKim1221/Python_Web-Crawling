@@ -1496,11 +1496,23 @@ receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFra
 Line: 670, column: 0
 console.error: ({})
 JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 670: NS_ERROR_NOT_AVAILABLE: Failed to open input source 'javascript:;'
-1625246118341	geckodriver	INFO	Listening on 127.0.0.1:56427
-1625246121446	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofilePY5Kxx"
+1625246281788	Marionette	INFO	Stopped listening on port 56344
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+"--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofilePY5Kxx"
 1625246121754	Marionette	INFO	Marionette enabled
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofilePY5Kxx\\search.json.mozlz4", (void 0)))
 1625246123674	Marionette	INFO	Listening on port 56435
 1625246124115	Marionette	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: https://flight.naver.com/flights/, line 128: TypeError: document.querySelector(...) is null
-1625246164408	Marionette	INFO	Stopped listening on port 56431625246165818	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" 
+1625246164408	Marionette	INFO	Stopped listening on port 56431625246165818	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofileKZVQFx"
+1625246166111	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofileKZVQFx\\search.json.mozlz4", (void 0)))
+1625246168208	Marionette	INFO	Listening on port 56513
+1625246168494	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://flight.naver.com/flights/, line 128: TypeError: document.querySelector(...) is null
+1625246289038	Marionette	INFO	Stopped listening on port 56513
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
