@@ -42,10 +42,16 @@ books_onSale = soup.find_all("span", attrs={"class" : "SUZt4c djCuy"})
     
 # print(len(books))
 for book in books:
-    price = book.find("span", attrs={"class" : "SUZt4c djCuy"})
-    if price:    
-        title = book.find("div", attrs={"class" : "WsMG1c nnK0zc"}).get_text() 
-        print(title)
+    origin_price = book.find("span", attrs={"class" : "SUZt4c djCuy"})
+
+    if origin_price:   
+        origin_price = origin_price.get_text()
+        title = book.find("div", attrs={"class" : "WsMG1c nnK0zc"}).get_text()    
+        sale_price = book.find("span", attrs={"class" : "VfPpfd ZdBevf i5DZme"}).get_text()
+        link = book.find("a", attrs={"class" : "JC71ub"})["href"]
+        print("book title  : ", title)
+        print(f"price  : {origin_price} -> {sale_price}" )
+        print(f"link  : https://paly.google.com{link}")
     else:
         continue
 
