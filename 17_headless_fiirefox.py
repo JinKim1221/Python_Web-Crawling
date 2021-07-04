@@ -3,20 +3,17 @@ from selenium import webdriver
 import requests
 from bs4 import BeautifulSoup
 import time
+# headless : web scraping in Server without showing the browser -> faster
+options = webdriver.FirefoxOptions()
+options.headless = True
+options.add_argument("window-size=1920x1080")
 
-browser = webdriver.Firefox()
+browser = webdriver.Firefox(options=options)
 browser.maximize_window()
 
 url = "https://play.google.com/store/books/collection/cluster?clp=0g4XChUKD3RvcHNlbGxpbmdfcGFpZBAHGAE%3D:S:ANO1ljIvTNM&gsr=ChrSDhcKFQoPdG9wc2VsbGluZ19wYWlkEAcYAQ%3D%3D:S:ANO1ljK-5i4&gl=IE"
 browser.get(url)
 
-
-
-# scroll down to where the spot(1080) of screen 
-# browser.execute_script("window.scrollTo(0, 1080)")
-
-# # scroll down to the bottom of browser
-# browser.execute_script("window.scrollTo(0, document.body.scrollHeight)")
 
 interval = 2 # scroll down every two seconds
 
@@ -56,5 +53,7 @@ for book in books:
         print("link  : https://play.google.com" +link)
     else:
         continue
+
+browser.get_screenshot_as_file("google_books.png")
 
 browser.quit()
