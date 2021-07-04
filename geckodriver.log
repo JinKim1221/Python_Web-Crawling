@@ -1902,3 +1902,39 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1625403481763	Marionette	INFO	Listening on port 60391
 1625403482280	Marionette	WARN	TLS certificate errors will be ignored for this session
 1625403491509	Marionette	INFO	Stopped listening on port 60391
+1625403765645	geckodriver	INFO	Listening on 127.0.0.1:60543
+1625403768672	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "window-size=1920x1080" "-foreground" "-no-remote" "-profile" "C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofiler9YMpu"
+*** You are running in headless mode.
+1625403768984	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofiler9YMpu\\search.json.mozlz4", (void 0)))
+1625403770291	Marionette	INFO	Listening on port 60552
+1625403770699	Marionette	WARN	TLS certificate errors will be ignored for this session
+1625403773264	Marionette	INFO	Stopped listening on port 60552
+JavaScript warning: https://pagead2.googlesyndication.com/bg/DbygjneaO4DVyaaVGwd-ToFDSMFkJodatxAyqShhIKw.js line 1 > eval line 1306 > eval, line 1: Failed to create WebGL context: WebGL creation failed: 
+* Can't use WebGL in headless mode (https://bugzil.la/1375585). ()
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\Jin\AppData\Local\Temp\rust_mozprofiler9YMpu\protections.sqlite
+1625403854282	geckodriver	INFO	Listening on 127.0.0.1:60637
+1625403857322	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "window-size=1920x1080" "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0" "-foreground" "-no-remote" "-profile" "C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofile4tL7ii"
+*** You are running in headless mode.
+1625403857639	Marionette	INFO	Marionette enabled
+ConvertWinError received an unrecognized WinError: 0x7b
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jin\\AppData\\Local\\Temp\\rust_mozprofile4tL7ii\\search.json.mozlz4", (void 0)))
+1625403859089	Marionette	INFO	Listening on port 60646
+1625403859365	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/DbygjneaO4DVyaaVGwd-ToFDSMFkJodatxAyqShhIKw.js line 1 > eval line 4922 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL creation failed: 
+* Can't use WebGL in headless mode (https://bugzil.la/1375585). ()
+1625403862791	Marionette	INFO	Stopped listening on port 60646
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1030: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\Jin\AppData\Local\Temp\rust_mozprofile4tL7ii\protections.sqlite
