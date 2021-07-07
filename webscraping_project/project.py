@@ -32,7 +32,6 @@ def scrape_weather():
     print(f"The highest temperature is {high_temp}°C,The lowest is {low_temp}°C")
     print(f"Chance of rain : {precipitation}")
 
-    print("============================================================================")
 
 # 3. News Headline
 def scrape_headline_news():
@@ -83,6 +82,9 @@ def scrape_stock_market():
         stock_open_To_current = soup.find("span", attrs={"class" : "Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)"}).get_text()
         stock_open_price = soup.find("td", attrs={"data-test" : "OPEN-value"}).get_text()
         stock_ask_price = soup.find("td", attrs={"data-test":"ASK-value"}).get_text()
+        if stock_ask_price == '0.00 x 0' : 
+            stock_ask_price = "Market closed"
+            
         if stock == "apple" : 
             print("<<<<<<<<<< APPLE >>>>>>>>>>")
             stock_info(stock_currency,stock_price,stock_open_To_current,stock_open_price,stock_ask_price ) 
@@ -95,18 +97,34 @@ def scrape_stock_market():
             print("<<<<<<<<<< Samsung SDI >>>>>>>>>>")
             stock_info(stock_currency,stock_price,stock_open_To_current,stock_open_price,stock_ask_price ) 
 
-    print("============================================================================")
+# 4. Today's spanish word and an example sentence
+def scrape_spanish():
 
+    print("=============================================================================")
+    print("============================Today's spanish word=============================")
+    url = "https://www.lexisrex.com/Spanish/Daily-Sentence"
+    soup = create_soup(url)
+    # spanish_word = soup.find("span", attrs={"class" : "js-wotd-wordsound-plus"})
+    # eng_word = soup.find("p", attrs={"class" : "js-wotd-translation"})
 
+    # spanish_sentence = soup.find("span", attrs={"class" : "js-wotd-phrasesound-plus"})
+    # eng_sentence = soup.find("p", attrs={"class": "js-wotd-enphrase"})
+    content = soup.find("div", attrs={"id":"content"})
+    # print(content)
+    spanish_sentence = content.find("span", attrs={"lang" : "es"}).get_text()
+    eng_sentence = soup.find_all("font", attrs={"face": "Times New Roman"})[1].get_text()
+    # print("Spanish Word of the Day : " + spanish_word)
+    # print("Tranlation in English: "+ eng_word)
+    print(">>>>>>>> Spanish sentence of the day  : "+ spanish_sentence)
+    print(">>>>>>>> Translate Sentence in English : "+ eng_sentence)
+
+    
 if __name__ == "__main__" :
-    # scrape_weather() # today's weather information
-    # scrape_headline_news() # today's global news headlines
-    scrape_stock_market()
+    scrape_weather() # today's weather information
+    scrape_headline_news() # today's global news headlines
+    scrape_stock_market() # today's stock market price
+    scrape_spanish()
 
 
 
-
-
-
-# 4. 3 Basic Spanish sentences
 
