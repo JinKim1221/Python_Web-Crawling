@@ -58,11 +58,19 @@ def scrape_headline_news():
         print("read more>>>>>" + link + headline_link+"\n")
 
 # 2. Today's stock that I invested
+    
+def stock_info(stock_currency,stock_price,stock_open_To_current,stock_open_price,stock_ask_price ) : 
+
+    print(stock_currency)
+    print("Current stock price : {0}            {1}" .format(stock_price, stock_open_To_current))
+    print("Open price : " + stock_open_price)
+    print("Ask price from : " + stock_ask_price)
+    print("\n")
 
 def scrape_stock_market():
     print("=============================================================================")
     print("============================Today's stock market=============================")
-    url = "https://finance.yahoo.com/quote/APC.F?p=APC.F&.tsrc=fin-srch"
+    url = "https://finance.yahoo.com"
     stock_url = {"apple" : "/quote/APC.F?p=APC.F&.tsrc=fin-srch", 
                 "ms" : "/quote/MSFT?p=MSFT&.tsrc=fin-srch",
                 "ss" : "/quote/XSDG.F?p=XSDG.F&.tsrc=fin-srch"}
@@ -70,13 +78,22 @@ def scrape_stock_market():
         stock_link = stock_url.get(stock)
         soup  = create_soup(url+stock_link)
 
+        stock_currency = soup.find("div", attrs={"class" : "C($tertiaryColor) Fz(12px)"}).get_text()
+        stock_price = soup.find("span", attrs={"class" : "Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)"}).get_text()
+        stock_open_To_current = soup.find("span", attrs={"class" : "Trsdu(0.3s) Fw(500) Pstart(10px) Fz(24px) C($positiveColor)"}).get_text()
+        stock_open_price = soup.find("td", attrs={"data-test" : "OPEN-value"}).get_text()
+        stock_ask_price = soup.find("td", attrs={"data-test":"ASK-value"}).get_text()
         if stock == "apple" : 
             print("<<<<<<<<<< APPLE >>>>>>>>>>")
-            
+            stock_info(stock_currency,stock_price,stock_open_To_current,stock_open_price,stock_ask_price ) 
+
         elif stock == "ms" :
             print("<<<<<<<<<< Microsoft >>>>>>>>>>")
+            stock_info(stock_currency,stock_price,stock_open_To_current,stock_open_price,stock_ask_price ) 
+
         else:
             print("<<<<<<<<<< Samsung SDI >>>>>>>>>>")
+            stock_info(stock_currency,stock_price,stock_open_To_current,stock_open_price,stock_ask_price ) 
 
     print("============================================================================")
 
