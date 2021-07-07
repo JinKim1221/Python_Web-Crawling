@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from requests.api import head
+from selenium import webdriver
 # 1. Today's weather
 headers = {"User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"}
 
@@ -34,6 +34,7 @@ def scrape_weather():
 
     print("============================================================================")
 
+# 3. News Headline
 def scrape_headline_news():
     print("=============================================================================")
     print("============================Today's headline news============================")
@@ -56,16 +57,37 @@ def scrape_headline_news():
         print(headline.get_text())
         print("read more>>>>>" + link + headline_link+"\n")
 
+# 2. Today's stock that I invested
+
+def scrape_stock_market():
+    print("=============================================================================")
+    print("============================Today's stock market=============================")
+    url = "https://finance.yahoo.com/quote/APC.F?p=APC.F&.tsrc=fin-srch"
+    stock_url = {"apple" : "/quote/APC.F?p=APC.F&.tsrc=fin-srch", 
+                "ms" : "/quote/MSFT?p=MSFT&.tsrc=fin-srch",
+                "ss" : "/quote/XSDG.F?p=XSDG.F&.tsrc=fin-srch"}
+    for idx, stock in enumerate(stock_url):
+        stock_link = stock_url.get(stock)
+        soup  = create_soup(url+stock_link)
+
+        if stock == "apple" : 
+            print("<<<<<<<<<< APPLE >>>>>>>>>>")
+            
+        elif stock == "ms" :
+            print("<<<<<<<<<< Microsoft >>>>>>>>>>")
+        else:
+            print("<<<<<<<<<< Samsung SDI >>>>>>>>>>")
+
+    print("============================================================================")
 
 
 if __name__ == "__main__" :
     # scrape_weather() # today's weather information
-    scrape_headline_news()
-# 2. Today's stock that I invested
+    # scrape_headline_news() # today's global news headlines
+    scrape_stock_market()
 
-url = "https://finance.yahoo.com/"
 
-# 3. News Headline
+
 
 
 
